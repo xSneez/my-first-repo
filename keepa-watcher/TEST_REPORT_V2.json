@@ -1,0 +1,27 @@
+{
+  "node": "20.20.2",
+  "version": "2.0.0",
+  "suites": [
+    {
+      "suite": "amazon-v2-test-output.txt",
+      "tests": 38,
+      "pass": 38,
+      "fail": 0
+    },
+    {
+      "suite": "html-promo-parser-v2-test-output.txt",
+      "tests": 24,
+      "pass": 24,
+      "fail": 0
+    },
+    {
+      "suite": "html-promo-v2-test-output.txt",
+      "tests": 12,
+      "pass": 12,
+      "fail": 0
+    }
+  ],
+  "tests": 74,
+  "liveDataImpulseTest": false,
+  "VPSDeployed": false
+}
