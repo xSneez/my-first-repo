@@ -94,6 +94,17 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 # Keine "zuletzt benutzten Apps" im Dock
 defaults write com.apple.dock show-recents -bool false
 
+# "Fast Vollbild": Dock und Menueleiste automatisch ausblenden,
+# Doppelklick auf die Titelleiste maximiert das Fenster
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.3
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Fill"
+
+# Finder: Vorschau rechts (wie Explorer-Vorschaufenster)
+defaults write com.apple.finder ShowPreviewPane -bool true
+
 # Bildschirmfotos in Bilder/Bildschirmfotos speichern (wie Windows)
 mkdir -p "${HOME}/Pictures/Bildschirmfotos"
 defaults write com.apple.screencapture location "${HOME}/Pictures/Bildschirmfotos"

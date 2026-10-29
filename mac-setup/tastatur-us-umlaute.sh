@@ -18,8 +18,12 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 mkdir -p "${HOME}/Library/Keyboard Layouts"
 cp "${DIR}/US mit Umlauten.keylayout" "${HOME}/Library/Keyboard Layouts/"
 
-echo "==> Layout installiert."
-echo "    1. Mac neu starten (sonst taucht es nicht auf)."
-echo "    2. Systemeinstellungen -> Tastatur -> Texteingabe -> Bearbeiten"
-echo "       -> '+' -> Andere -> 'US mit Umlauten' -> Hinzufuegen."
-echo "    3. Alte Layouts (ABC usw.) mit '-' entfernen."
+# Als Eingabequelle eintragen und auswaehlen (greift nach Ab-/Anmelden)
+E='{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = -24713; "KeyboardLayout Name" = "US mit Umlauten"; }'
+defaults read com.apple.HIToolbox AppleEnabledInputSources 2>/dev/null | grep -q "US mit Umlauten" || \
+  defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add "$E"
+defaults write com.apple.HIToolbox AppleSelectedInputSources -array "$E"
+
+echo "==> Layout installiert und ausgewaehlt."
+echo "    >>> Jetzt einmal ABMELDEN und wieder anmelden."
+echo "    Wechseln zwischen Layouts: Ctrl + Leertaste."

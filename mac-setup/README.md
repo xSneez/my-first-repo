@@ -38,6 +38,10 @@ Das Skript erledigt auf einen Schlag:
 | Trackpad  | Tippen zum Klicken, Rechtsklick mit 2 Fingern (Scrollrichtung bleibt Mac-Standard) |
 | Menüleiste/Dock | Akku in Prozent, keine „zuletzt benutzten Apps“ im Dock |
 | Bildschirmfotos | Landen in **Bilder → Bildschirmfotos** |
+| „Fast Vollbild“ | Dock + Menüleiste blenden sich aus, Doppelklick auf Titelleiste maximiert |
+| Finder-Vorschau | Rechts im Finder wie im Explorer (⌘⇧P), Leertaste = große Vorschau |
+
+> Bei MacBooks mit Kamera-Notch gehen Fenster nie ganz bis oben – das ist von Apple so.
 | Dialoge   | Speichern-/Druckdialoge ausgeklappt |
 
 Alle Änderungen sind **benutzereigene Einstellungen** und jederzeit wieder
@@ -156,6 +160,19 @@ bash mac-setup/tastatur-us-umlaute.sh
 | ⌥ + ⇧ + 2 | € |
 
 Danach neu starten und unter *Tastatur → Texteingabe* „US mit Umlauten“ hinzufügen.
+
+---
+
+## 3d. Entwicklung
+
+`programme.sh` installiert zusätzlich **Node.js 22** und klont die eigenen Repos
+nach `~/code` (vorher `gh auth login`).
+
+**claimy:** Die `.env` ist mit dotenvx verschlüsselt. Zum Entschlüsseln die
+Datei **`.env.keys`** vom alten Rechner nach `~/code/claimy/` kopieren
+(USB-Stick/Passwort-Manager – nie per Git, Cloud oder Mail). Dann
+`npm ci && npm run dev`. Extensions: Chrome → `chrome://extensions` →
+Entwicklermodus → „Entpackte Erweiterung laden“ → `extension` und `extension-ean`.
 
 ---
 

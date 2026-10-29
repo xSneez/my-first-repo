@@ -88,6 +88,25 @@ if [ -d /Applications/Shottr.app ]; then
   open /Applications/Shottr.app
 fi
 
+# Swift Quit darf Hintergrund-Apps nicht beim Fenster-Schliessen beenden
+defaults write onebadidea.Swift-Quit SwiftQuitExcludedApps -array \
+  "/Applications/Shottr.app" "/Applications/Rectangle.app" "/Applications/OneDrive.app"
+
+# ------------------------------------------------------------------
+# 3. Entwicklung: Node.js + eigene Repos nach ~/code
+# ------------------------------------------------------------------
+brew install node@22 gh || FAILED+=("node@22/gh")
+brew link --overwrite --force node@22 >/dev/null 2>&1 || true
+
+if gh auth status >/dev/null 2>&1; then
+  mkdir -p "${HOME}/code"
+  for r in claimy hirlo-research keepa-watcher Immo-Webseite keepa-fba keepa-coupon hs-lookup lexoffice-extension; do
+    [ -d "${HOME}/code/${r}" ] || gh repo clone "xSneez/${r}" "${HOME}/code/${r}" -- -q || FAILED+=("repo:${r}")
+  done
+else
+  echo "    Repos uebersprungen - erst 'gh auth login' ausfuehren."
+fi
+
 if [ "${#FAILED[@]}" -gt 0 ]; then
   echo ""
   echo "!!  Nicht installiert: ${FAILED[*]}"
