@@ -35,7 +35,9 @@ Das Skript erledigt auf einen Schlag:
 |-----------|--------------|
 | Finder    | Dateiendungen sichtbar, Listenansicht, Pfad-/Statusleiste, Laufwerke auf dem Schreibtisch |
 | Sortierung| Ordner immer zuerst (wie Windows) |
-| Trackpad  | Scrollrichtung umgedreht, Tippen zum Klicken, Rechtsklick mit 2 Fingern |
+| Trackpad  | Tippen zum Klicken, Rechtsklick mit 2 Fingern (Scrollrichtung bleibt Mac-Standard) |
+| Menüleiste/Dock | Akku in Prozent, keine „zuletzt benutzten Apps“ im Dock |
+| Bildschirmfotos | Landen in **Bilder → Bildschirmfotos** |
 | Dialoge   | Speichern-/Druckdialoge ausgeklappt |
 
 Alle Änderungen sind **benutzereigene Einstellungen** und jederzeit wieder
@@ -116,6 +118,15 @@ Installiert wird:
 | Spotify    | Musik |
 | Discord    | Chat / Voice |
 | TeamViewer | Fernwartung |
+| OneDrive   | Dateien vom Windows-PC |
+| Rectangle  | Fenster andocken wie Windows |
+| Swift Quit | Rotes X beendet das Programm (wie Windows) |
+| Shottr     | ⌘⇧4 = Bildschirmfoto speichern **und** in Zwischenablage (wie Snipping Tool) |
+
+Rectangle, Swift Quit und Shottr starten automatisch beim Login. Beim ersten
+Start nach **Bedienungshilfen** bzw. **Bildschirmaufnahme** fragen lassen und
+erlauben. In Shottr einmal unter *Settings* den Speicherordner auf
+**Bilder → Bildschirmfotos** setzen (geht nur per Klick).
 
 Bereits installierte Programme werden übersprungen. Du findest alles danach
 im Ordner **Programme** (Applications).
@@ -126,6 +137,25 @@ im Ordner **Programme** (Applications).
 
 > Möchtest du später weitere Programme? Trag sie einfach in der Liste `APPS`
 > in `programme.sh` nach (Cask-Namen findest du auf <https://brew.sh>).
+
+---
+
+## 3c. US-Tastatur mit Umlauten
+
+Für ein MacBook mit **US-Tastatur**: alles bleibt wie aufgedruckt, nur Y/Z
+getauscht, dazu Umlaute über die Option-Taste.
+
+```bash
+bash mac-setup/tastatur-us-umlaute.sh
+```
+
+| Taste | Ergebnis |
+|-------|----------|
+| ⌥ + a / o / u | ä / ö / ü (mit ⇧ groß) |
+| ⌥ + s | ß |
+| ⌥ + ⇧ + 2 | € |
+
+Danach neu starten und unter *Tastatur → Texteingabe* „US mit Umlauten“ hinzufügen.
 
 ---
 

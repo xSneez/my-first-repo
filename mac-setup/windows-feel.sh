@@ -57,16 +57,22 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # TRACKPAD / MAUS - Windows-Gefuehl
 # ------------------------------------------------------------------
 
-# Scrollrichtung umdrehen ("natuerliches Scrollen" aus)
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+# Scrollrichtung bleibt Mac-Standard ("natuerliches Scrollen" an)
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 # Tippen zum Klicken aktivieren
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Rechtsklick (Sekundaerklick) mit zwei Fingern
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 0
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # ------------------------------------------------------------------
 # DIALOGE - mehr wie Windows
@@ -79,11 +85,26 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint  -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 # ------------------------------------------------------------------
+# MENUELEISTE / DOCK / BILDSCHIRMFOTOS
+# ------------------------------------------------------------------
+
+# Akku in Prozent anzeigen
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
+
+# Keine "zuletzt benutzten Apps" im Dock
+defaults write com.apple.dock show-recents -bool false
+
+# Bildschirmfotos in Bilder/Bildschirmfotos speichern (wie Windows)
+mkdir -p "${HOME}/Pictures/Bildschirmfotos"
+defaults write com.apple.screencapture location "${HOME}/Pictures/Bildschirmfotos"
+
+# ------------------------------------------------------------------
 # Neustart der betroffenen Programme, damit alles sofort greift
 # ------------------------------------------------------------------
 echo "==> Finder und Dock werden neu gestartet ..."
 killall Finder 2>/dev/null || true
 killall Dock   2>/dev/null || true
+killall SystemUIServer ControlCenter 2>/dev/null || true
 
 echo ""
 echo "==> Fertig! Die Einstellungen sind aktiv."
