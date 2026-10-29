@@ -97,6 +97,38 @@ brew install --cask rectangle
 
 ---
 
+## 3b. Lieblings-Programme automatisch installieren
+
+Alle Programme von deinem Windows-PC auf einmal installieren (per Homebrew):
+
+```bash
+bash mac-setup/programme.sh
+```
+
+Installiert wird:
+
+| Programm   | Zweck |
+|------------|-------|
+| VS Code    | Code-Editor |
+| Parsec     | Remote-Gaming / Fernzugriff |
+| Google Chrome | Browser |
+| RoboForm   | Passwort-Manager |
+| Spotify    | Musik |
+| Discord    | Chat / Voice |
+| TeamViewer | Fernwartung |
+
+Bereits installierte Programme werden übersprungen. Du findest alles danach
+im Ordner **Programme** (Applications).
+
+> 🔐 **TeamViewer** und **Parsec** fragen beim ersten Start nach Rechten für
+> *Bildschirmaufnahme* und *Bedienungshilfen* – das ist normal und für den
+> Fernzugriff nötig. Einfach in den Systemeinstellungen freigeben.
+
+> Möchtest du später weitere Programme? Trag sie einfach in der Liste `APPS`
+> in `programme.sh` nach (Cask-Namen findest du auf <https://brew.sh>).
+
+---
+
 ## 4. Daten von Windows → Mac übertragen
 
 Claude kann **nicht** auf deinen Windows-PC zugreifen. Bring die Daten so rüber:
