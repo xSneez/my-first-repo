@@ -43,6 +43,47 @@ umkehrbar.
 
 ---
 
+## 2b. Sprache & Tastatur auf Deutsch stellen
+
+Wenn der Mac aktuell auf **Englisch oder Thai** steht, zuerst auf Deutsch
+umstellen. Dafür gibt es ein eigenes Skript:
+
+```bash
+bash mac-setup/sprache-tastatur.sh
+```
+
+Das stellt um:
+
+| Bereich   | Wert |
+|-----------|------|
+| Systemsprache | Deutsch (Englisch als Rückfall) |
+| Region/Format | Deutschland, € als Währung |
+| Maßeinheiten  | cm / kg / °C |
+| Tastatur      | Deutsche Belegung (QWERTZ, ß, Umlaute) |
+
+> ⚠️ **Die Sprache greift erst nach Abmelden oder Neustart.** Also nach dem
+> Skript einmal neu starten.
+
+### Sicherer Weg, falls das Skript (noch auf Englisch/Thai) schwer zu bedienen ist
+
+Die Umstellung geht auch komplett per Klick — praktisch, wenn du die Menüs
+gerade nicht lesen kannst, weil sie Thai sind:
+
+**Sprache:**  Apple-Menü () → *System Settings / การตั้งค่าระบบ* →
+**General → Language & Region** → unter „Preferred Languages" mit **+**
+**Deutsch** hinzufügen und nach ganz oben ziehen → Neustart bestätigen.
+
+**Tastatur:**  System Settings → **Keyboard → Text Input → Edit…** → **+** →
+**Deutsch → Deutsch** auswählen → Thai/Englisch bei Bedarf entfernen.
+
+> 💡 Tipp: Zwischen Tastaturlayouts wechselst du jederzeit mit **⌃ + Leertaste**
+> (Ctrl + Leertaste) oder über das Flaggen-Symbol oben rechts in der Menüleiste.
+
+Wenn Claude Code schon installiert ist, kannst du es auch einfach bitten:
+„Führ das Skript `mac-setup/sprache-tastatur.sh` aus."
+
+---
+
 ## 3. Fenster „snappen" wie bei Windows
 
 macOS kann Fenster nicht von Haus aus an den Rand andocken (`⊞ + Pfeil`).
